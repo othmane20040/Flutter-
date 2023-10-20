@@ -207,4 +207,29 @@ class CustomIconButton extends StatelessWidget {
 class ImageScreen extends StatelessWidget {
   final String imagePath;
 
-  ImageScreen(this
+  ImageScreen(this.imagePath);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Image Preview'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(imagePath),
+            SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop(); 
+              },
+              child: Text('Retour'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
